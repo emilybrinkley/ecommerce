@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'all' => 'storefront#all_items'
+
+  get 'categorical' => 'storefront#items_by_category'
+
+  get 'branding' => 'storefront#items_by_brand'
+
   resources :categories
   resources :products
 
-  root 'products#index'
+  root 'storefront#all_items'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
