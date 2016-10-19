@@ -20,7 +20,7 @@ class CartController < ApplicationController
   def checkout
     @line_items = LineItem.all
     @order = Order.new
-    @order.user_id = current_user.user_id
+    @order.user_id = current_user.id
 
     sum = 0
 
